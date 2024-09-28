@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASHBOARD</title>
+    <style>
+body{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin:0;
+    height: 100vh;
+    
+}
+
+.topbuttons,.bottombuttons{
+    display:flex;
+    justify-content: center;
+    gap:50px;
+margin:150px;
+}
+.bottombuttons{
+    margin-bottom: 20px;
+    
+}
+#top {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+#bottom{
+    padding: 8px 16px;
+    font-size: 8px;
+}   
+    </style>
+</head>
+<body>
+    <form action="http://localhost:3000/">
+        <div class="topbuttons">
+
+            <button type="submit" id="top" formaction="http://localhost:3000/upload" method="GET" value="submit" >UPLOAD RESUME</button>
+            <button type="submit" id="top" formaction="http://localhost:3000/updateprofile" method="POST" value="submit">UPDATE PROFILE</button>
+            <button type="submit" id="top" formaction="http://localhost:3000/changepassword" method="POST" value="submit">CHANGEPASSWORD</button>
+        </div>
+        
+        <div class="bottombuttons">
+            <button  id="bottom"type="submit" formaction="http://localhost:3000/signout"method="POST" >SIGNOUT</button>
+            <button id="bottom" type="submit" formaction="http://localhost:3000/deleteprofile"method="POST" >DELETE PROFILE</button>
+         </div>
+
+        
+
+    
+   </form>
+        
+
+</body>
+</html>

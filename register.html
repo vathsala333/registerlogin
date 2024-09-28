@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTER</title>
+    <style>
+      div {
+      
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height:200vh;
+        margin: 0;
+        padding:1em;
+       
+      }
+      form.center-form,label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; 
+      }
+      
+      input[type="text"],
+      input[type="number"],
+      input[type="password"],
+     
+      input[type="email"] {
+        padding: 10px;
+        width: 200px;
+       
+      }
+      input[type="submit"],
+      input[type="reset"] {
+        padding: 10px 20px;
+        cursor: pointer;
+       
+      }
+    
+    
+      
+    
+        
+    </style>
+</head>
+
+<body>
+ 
+  <div >
+            
+    <form  class="center-form" action="http://localhost:3000/register" method="POST" id="signup">
+      <H4>REGISTRATION</H4>
+     
+      <p><b><font size=2px color=black></font>  <label>Enter The First Name:</label>     <input type="text" id="fname"    name="fname"   required></b></p>
+        <span id="fname_err" class="err_name"></span>
+
+        <p><b><font size=2px color=black></font>  <label>Enter The Last  Name:</label>    <input type="text" id="lname" name="lname"    required></b></p>
+        <span id="lname_err" class="err_name"></span> 
+
+        <p><b><font size=2px color=black></font><label>Enter Phone Number:</label><input type="number" name="cellno" id="cellno" required></b></p>
+
+        <p><b><font size=2px color=black></font><label>Enter The EmailId:</label><input type="email" id="email" name="email"   required> </b></p>
+        <span id="email_err" class="err_name"></span>
+        
+        <p><b><font size=2px color=black></font><label>Enter Password:</label><input type="password" id="password" name="password"  required> </b></p>
+       
+        <span id="password_err" name="password_err" class="err_name"></span>
+        
+        <p><b><font size=2px color=black></font><label>Confrim Password:</label><input type="password" id="cpassword" name="cpassword"   required> </b></p>
+        <span id="errpassword" class="errpassword" name="errpassword"></span>
+
+
+ <p><b><font size=2px color=black></font>  <label>Present Organization</label><input type="text" name="porg" id="porg" required></b></p>
+
+      
+      <p><b><font size=2px color=black></font><label>Experience:</label><input type="number" id="exp"name="exp"   required></b></p>
+      <p><b><font size=2px color=black></font><label>SKILL:</label><input type="text" id="skill" name="skill"   required></b></p>
+      
+    
+      
+      
+           
+        <input  type="submit" value="REGISTER">
+        <input  type="reset" id="reset" value="RESET">
+      
+      
+       
+      
+      </button>
+       
+
+    </form>
+    
+    
+      
+    </div>
+      
+   
+   
+   
+    <script>
+      let signup=document.getElementById("signup")
+       signup.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        console.log("inside eventlister")
+
+        
+        let fname=document.getElementById("fname").value
+        let fname_err=document.getElementById("fname_err")
+        fname_err.textContent='';
+
+        if(fname.length==0)
+        fname_err.textContent=("first name cannot be empty")
+        else if(fname.length<3)
+        fname_err.textContent=("user name cannot be lessthan 3")
+
+        else if(fname.length>20)
+        fname_err.textContent=("user name cannot be morethan 20") 
+
+
+        let lname=document.getElementById("lname").value 
+        let lname_err=document.getElementById("lname_err")
+          lname_err.textContent='';
+          if(lname.length==0){
+            lname_err.textContent=("last name cannot be empty")
+           }
+              
+           else if(lname.length>20)
+           lname_err.textContent=("last name cannot be morethan 20") 
+
+
+          let email=document.getElementById("email").value 
+          let  email_err=document.getElementById("email_err")
+             email_err.textContent='';
+             if(email.lenth==0)
+             email_err.textContent=("Email should not be empty")
+           else if(email.length<=14){
+               email_err.textContent=("Email should have 14 character")
+           }
+let password=document.getElementById("password").value
+let password_err=document.getElementById("password_err")
+        password_err.textContent='';
+        let cpassword=document.getElementById("cpassword").value
+let errpassword=document.getElementById("errpassword")
+errpassword.textContent=''
+
+        if (password.length < 8) {
+          console.log("inside password")
+          password_err.textContent = ("Password must be at least 8 characters long.")
+         
+        }
+        else if((/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/.test(password))!=true){
+          password_err.textContent = ("MINIMUM 1 UPPER 1 LOWER 1 DIGIT AND A SPECIAL CHARACTER REQUIRED")
+
+        }
+         else if(password!==cpassword){
+          errpassword.textContent=("PASSWORD DONT MATCH")
+      }
+       else {
+          console.log("PASSWORD MATCH")
+          e.target.submit()
+      
+        } })
+
+     
+       
+    </script>
+    
+</body>
+</html>

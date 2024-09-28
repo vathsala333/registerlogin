@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       div{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin:0;
+        
+        height:50vh;
+       }
+       form.center-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; /* Space between elements */
+      }
+       input[type="password"],
+     
+       input[type="email"] {
+         padding: 10px;
+         width: 200px;
+        
+       }
+    </style>
+    
+</head>
+<body>
+    <div>
+    <form  class="center-form"action="http://localhost:3000/login" method="POST">
+        <input type="email" id="email" name="email" placeholder="Enter your  Email" required>
+        
+        <input type="password" id="password" name="password" placeholder="Enter your  password" required>
+           <input type="submit" value="LOGIN" >      
+    </form>
+    </div>
+</body>
+</html>
